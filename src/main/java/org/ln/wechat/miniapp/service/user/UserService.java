@@ -6,4 +6,6 @@ public interface UserService {
   QcUserBean findById(Integer userId);
 
   QcUserBean findUserByNickName(String nickName);
+
+  int updateUserSelectiveById(QcUserBean qcUserBean);
 }

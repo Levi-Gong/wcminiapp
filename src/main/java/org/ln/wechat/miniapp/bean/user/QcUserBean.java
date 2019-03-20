@@ -1,5 +1,7 @@
 package org.ln.wechat.miniapp.bean.user;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -7,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@TableName("qc_user")
 public class QcUserBean implements Serializable {
   private Integer id;
 
@@ -30,5 +33,8 @@ public class QcUserBean implements Serializable {
 
   private String otherRefrence;
 
+  private String level;
+
+  @TableField(exist = false)
   private List<QcRoleBean> roles;
 }

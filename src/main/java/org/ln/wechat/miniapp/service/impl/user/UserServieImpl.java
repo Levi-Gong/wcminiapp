@@ -24,4 +24,9 @@ public class UserServieImpl implements UserService {
     queryWrapper.setEntity(qcUserBean);
     return userMapper.selectOne(queryWrapper);
   }
+
+  @Override
+  public int updateUserSelectiveById(QcUserBean qcUserBean) {
+    return userMapper.updateById(qcUserBean);
+  }
 }

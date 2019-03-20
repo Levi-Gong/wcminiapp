@@ -1,5 +1,7 @@
 package org.ln.wechat.miniapp.biz.user;
 
+import org.ln.wechat.miniapp.bean.user.QcUserBean;
+
 public interface UserBiz {
 
   /**
@@ -9,4 +11,8 @@ public interface UserBiz {
    * @return
    */
   Object loginByWechat(String code);
+
+  QcUserBean getUserById(Integer userId);
+
+  int updateUser(QcUserBean qcUserBean);
 }
