@@ -15,8 +15,8 @@ public class AuthController {
   @Autowired private UserBiz userBiz;
 
   @PostMapping("/wechatLogin")
-  public ResponseEntity<?> wechatLogin(@RequestParam String code) {
+  public ResponseEntity<?> wechatLogin(@RequestParam String code, String scene) {
 
-    return ResponseEntity.ok(userBiz.loginByWechat(code));
+    return ResponseEntity.ok(userBiz.loginByWechat(code, scene));
   }
 }

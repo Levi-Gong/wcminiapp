@@ -29,4 +29,24 @@ public class UserServieImpl implements UserService {
   public int updateUserSelectiveById(QcUserBean qcUserBean) {
     return userMapper.updateById(qcUserBean);
   }
+
+  /**
+   * 根据微信 open_id查找用户
+   *
+   * @param openId
+   * @return
+   */
+  @Override
+  public QcUserBean findUserByOpenId(String openId) {
+    QueryWrapper<QcUserBean> queryWrapper = new QueryWrapper<>();
+    QcUserBean qcUserBean = new QcUserBean();
+    qcUserBean.setOpenId(openId);
+    queryWrapper.setEntity(qcUserBean);
+    return userMapper.selectOne(queryWrapper);
+  }
+
+  @Override
+  public int saveUser(QcUserBean userBean) {
+    return userMapper.insert(userBean);
+  }
 }

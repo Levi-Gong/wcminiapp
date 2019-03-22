@@ -8,4 +8,14 @@ public interface UserService {
   QcUserBean findUserByNickName(String nickName);
 
   int updateUserSelectiveById(QcUserBean qcUserBean);
+
+  /**
+   * 根据微信 open_id查找用户
+   *
+   * @param openId
+   * @return
+   */
+  QcUserBean findUserByOpenId(String openId);
+
+  int saveUser(QcUserBean userBean);
 }

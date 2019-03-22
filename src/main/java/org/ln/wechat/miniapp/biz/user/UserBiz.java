@@ -5,12 +5,11 @@ import org.ln.wechat.miniapp.bean.user.QcUserBean;
 public interface UserBiz {
 
   /**
-   * 微信授权登录
-   *
-   * @param code
+   * @param code js_code
+   * @param scene 推荐人信息
    * @return
    */
-  Object loginByWechat(String code);
+  Object loginByWechat(String code, String scene);
 
   QcUserBean getUserById(Integer userId);
 
