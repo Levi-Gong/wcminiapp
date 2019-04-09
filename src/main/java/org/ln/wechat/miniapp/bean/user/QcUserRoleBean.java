@@ -1,10 +1,12 @@
 package org.ln.wechat.miniapp.bean.user;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
+@TableName("qc_user_role")
 public class QcUserRoleBean {
   private Integer id;
 

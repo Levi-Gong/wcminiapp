@@ -1,12 +1,11 @@
 package org.ln.wechat.miniapp.controller.auth;
 
+import org.ln.wechat.miniapp.bean.common.ApiResponse;
+import org.ln.wechat.miniapp.bean.user.QcUserBean;
 import org.ln.wechat.miniapp.biz.user.UserBiz;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -14,9 +13,16 @@ public class AuthController {
 
   @Autowired private UserBiz userBiz;
 
-  @PostMapping("/wechatLogin")
-  public ResponseEntity<?> wechatLogin(@RequestParam String code, String scene) {
+  @GetMapping("/loginByWechat")
+  public ApiResponse<String> wechatLogin(@RequestParam String code) {
 
-    return ResponseEntity.ok(userBiz.loginByWechat(code, scene));
+    return userBiz.loginByWechat(code);
   }
+
+  @PostMapping("/signUpByWechat")
+  @ResponseBody
+  public ApiResponse<String> signUpByWechat(@RequestBody QcUserBean user){
+    return userBiz.saveUserWithWechat(user);
+  }
+
 }

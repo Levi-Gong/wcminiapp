@@ -1,5 +1,6 @@
 package org.ln.wechat.miniapp.biz.user;
 
+import org.ln.wechat.miniapp.bean.common.ApiResponse;
 import org.ln.wechat.miniapp.bean.user.QcUserBean;
 
 public interface UserBiz {
@@ -9,9 +10,13 @@ public interface UserBiz {
    * @param scene 推荐人信息
    * @return
    */
-  Object loginByWechat(String code, String scene);
+  ApiResponse<String> loginByWechat(String code);
 
   QcUserBean getUserById(Integer userId);
 
   int updateUser(QcUserBean qcUserBean);
+
+  ApiResponse<QcUserBean> getUserDetail();
+
+  ApiResponse<String> saveUserWithWechat(QcUserBean user);
 }

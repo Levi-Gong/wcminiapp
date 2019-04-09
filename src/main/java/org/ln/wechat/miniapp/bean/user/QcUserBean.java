@@ -1,6 +1,8 @@
 package org.ln.wechat.miniapp.bean.user;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -11,6 +13,8 @@ import java.util.List;
 @Data
 @TableName("qc_user")
 public class QcUserBean implements Serializable {
+
+  @TableId(value = "ID", type = IdType.INPUT)
   private Integer id;
 
   private String nickName;
@@ -34,6 +38,8 @@ public class QcUserBean implements Serializable {
   private String otherRefrence;
 
   private String level;
+  @TableField(exist = false)
+  private String wechatCode;
 
   @TableField(exist = false)
   private List<QcRoleBean> roles;
